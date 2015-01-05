@@ -1,0 +1,12 @@
+# phpstorm files
+.idea
+
+# composer files
+composer.phar
+composer.lock
+
+# vendor libraries
+vendor/
+
+# phpunit files
+tests/phpunit.xml

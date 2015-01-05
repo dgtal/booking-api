@@ -1,0 +1,34 @@
+{
+    "name": "dgtal/booking",
+    "type": "library",
+    "description": "Booking API Client",
+    "keywords": ["booking", "api", "client"],
+    "homepage": "http://dgtal.info",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rodrigo Muñoz",
+            "email": "rodrigoguzman@gmail.com",
+            "homepage": "http://dgtal.info"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "guzzlehttp/guzzle": "~5.0",
+        "guzzlehttp/guzzle-services": "0.5.*",
+        "guzzlehttp/log-subscriber": "~1.0",
+        "symfony/options-resolver": "~2.4"
+    },
+    "autoload": {
+        "psr-0": {
+            "DGtal\\BookingApiClient": "lib/"
+        }
+    },
+    "minimum-stability": "stable",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+
+}

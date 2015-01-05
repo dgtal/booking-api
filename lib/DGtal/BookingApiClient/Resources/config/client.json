@@ -1,0 +1,40 @@
+{
+    "operations": {
+        "countries": {
+            "description": "Returns countrycodes and their translated names.",
+            "httpMethod": "GET",
+            "uri": "bookings.getCountries",
+            "responseModel": "jsonResponse",
+            "parameters": {
+                "countrycodes": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to the specified country."
+                },
+                "languagecodes": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Return the results in this language."
+                },
+                "offset": {
+                    "type": "number",
+                    "location": "query",
+                    "description": "Where in the resulting list to start. This can be used together with {rows} to get the data in parts."
+                },
+                "rows": {
+                    "type": "number",
+                    "location": "query",
+                    "description": "The maximum number of entries to return. This can be used together with {offset} to get the data in parts."
+                }
+            }
+        }
+    },
+    "models": {
+        "jsonResponse": {
+            "type": "object",
+            "additionalProperties": {
+                "location": "json"
+            }
+        }
+    }
+}
