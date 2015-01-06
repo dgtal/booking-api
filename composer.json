@@ -1,5 +1,5 @@
 {
-    "name": "dgtal/booking",
+    "name": "dgtal/booking-api",
     "type": "library",
     "description": "Booking API Client",
     "keywords": ["booking", "api", "client"],

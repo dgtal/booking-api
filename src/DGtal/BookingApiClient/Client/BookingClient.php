@@ -52,6 +52,8 @@ class BookingClient extends GuzzleClient
                 'username',
                 'password'
             ])
+            ->setAllowedTypes('username', 'string')
+            ->setAllowedTypes('password', 'string')
         ;
     }
 }
