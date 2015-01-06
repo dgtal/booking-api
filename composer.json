@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-0": {
-            "DGtal\\BookingApiClient": "lib/"
+            "DGtal\\BookingApiClient": "src/"
         }
     },
     "minimum-stability": "stable",
