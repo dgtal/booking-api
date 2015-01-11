@@ -566,6 +566,74 @@
                 }
             }
         },
+        "getRoomFacilities": {
+            "description": "Returns room facilities.",
+            "httpMethod": "GET",
+            "uri": "bookings.getRoomFacilities",
+            "responseModel": "jsonResponse",
+            "parameters": {
+                "city_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to these cities."
+                },
+                "classes": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to these classifications."
+                },
+                "countrycodes": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to the specified country."
+                },
+                "fields": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to these output variables."
+                },
+                "hotel_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result to these hotels."
+                },
+                "room_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result to these rooms."
+                },
+                "facilitytype_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to these facility types."
+                },
+                "roomfacilitytype_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result to these room facility types."
+                },
+                "offset": {
+                    "type": "number",
+                    "location": "query",
+                    "description": "Where in the resulting list to start. This can be used together with {rows} to get the data in parts."
+                },
+                "rows": {
+                    "type": "number",
+                    "location": "query",
+                    "description": "The maximum number of entries to return. This can be used together with {offset} to get the data in parts."
+                },
+                "show_test": {
+                    "type": "boolean",
+                    "location": "query",
+                    "description": "Also include information from test hotels (useful for debugging)."
+                },
+                "last_change": {
+                    "type": "date",
+                    "location": "query",
+                    "description": "Limit the results to all data that has been changed since this date (see also getChangedHotels)."
+                }
+            }
+        },
         "getFacilityTypes": {
             "description": "Returns facility types.",
             "httpMethod": "GET",
@@ -586,6 +654,39 @@
                     "type": "string",
                     "location": "query",
                     "description": "Limit the results to these facility types."
+                }
+            }
+        },
+        "getRoomFacilityTypes": {
+            "description": "Returns room facility types.",
+            "httpMethod": "GET",
+            "uri": "bookings.getRoomFacilityTypes",
+            "responseModel": "jsonResponse",
+            "parameters": {
+                "languagecodes": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Return the results in this language."
+                },
+                "fields": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to these output variables."
+                },
+                "facilitytype_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to these facility types."
+                },
+                "roomfacilitytype_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to these room facility types."
+                },
+                "types": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to these value types (string, boolean, integer)."
                 }
             }
         },
