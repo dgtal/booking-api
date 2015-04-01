@@ -1,5 +1,76 @@
 {
     "operations": {
+        "getBlockAvailability": {
+            "description": "Returns a list of hotels that have availability in the given period. More hotels means more processing time, so making your input variables as specific as possible (eg. don't check multiple {city_ids}, but use pre-filtered {hotel_ids} instead) will result in faster availability pages. NB there's a limit of 1000 hotels that can be processed at a time.",
+            "httpMethod": "GET",
+            "uri": "bookings.getBlockAvailability ",
+            "responseModel": "jsonResponse",
+            "parameters": {
+                "arrival_date": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "The arrival date. Must be within 360 days in the future."
+                },
+                "departure_date": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "The departure date. Must be later than {arrival_date}. Must be between 1 and 30 days after {arrival_date}. Must be within 360 days in the future."
+                },
+                "hotel_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result to these hotels."
+                },
+                "languagecode": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Specify the language for: block_id, policies, room texts and hotel descriptions. Note: not all text is translated in all languages."
+                },
+                "detail_level": {
+                    "type": "boolean",
+                    "location": "query",
+                    "description": "Block's information detail level. If set to 1 returns policy, photos and texts* information per block. This parameter cannot be set to 1 if hotel_ids is greater than 1. A list of currently possible policies can be found https://xml.booking.com/affiliates/documentation/xml_getblockavailability.html#C01."
+                }
+            }
+        },
+        "getHotelAvailability": {
+            "description": "Returns a list of hotels that have availability in the given period. More hotels means more processing time, so making your input variables as specific as possible (eg. don't check multiple {city_ids}, but use pre-filtered {hotel_ids} instead) will result in faster availability pages. NB there's a limit of 1000 hotels that can be processed at a time.",
+            "httpMethod": "GET",
+            "uri": "bookings.getHotelAvailability ",
+            "responseModel": "jsonResponse",
+            "parameters": {
+                "arrival_date": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "The arrival date. Must be within 360 days in the future."
+                },
+                "departure_date": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "The departure date. Must be later than {arrival_date}. Must be between 1 and 30 days after {arrival_date}. Must be within 360 days in the future."
+                },
+                "countrycodes": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to the specified country."
+                },
+                "city_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to these cities."
+                },
+                "classes": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to these classifications."
+                },
+                "hotel_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result to these hotels."
+                }
+            }
+        },
         "getCountries": {
             "description": "Returns countrycodes and their translated names.",
             "httpMethod": "GET",
