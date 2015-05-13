@@ -68,6 +68,11 @@
                     "type": "string",
                     "location": "query",
                     "description": "Limit the result to these hotels."
+                },
+                "currency_code": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Returns the price in this currency, in addition to the hotel currency"
                 }
             }
         },
