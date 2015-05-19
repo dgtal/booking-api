@@ -104,6 +104,59 @@
                 }
             }
         },
+        "getDistricts": {
+            "description": "Returns all the districts where Bookings offers hotels.",
+            "httpMethod": "GET",
+            "uri": "bookings.getDistricts",
+            "responseModel": "jsonResponse",
+            "parameters": {
+                "city_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to these cities."
+                },
+                "countrycodes": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to the specified country."
+                },
+                "include_latlong": {
+                    "type": "boolean",
+                    "location": "query",
+                    "description": "Include latitude and longitude."
+                },
+                "district_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to these districts."
+                },
+                "fields": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to these output variables."
+                },
+                "last_change": {
+                    "type": "date",
+                    "location": "query",
+                    "description": "Limit the results to all data that has been changed since this date (see also getChangedHotels)."
+                },
+                "languagecodes": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Return the results in this language."
+                },
+                "offset": {
+                    "type": "number",
+                    "location": "query",
+                    "description": "Where in the resulting list to start. This can be used together with {rows} to get the data in parts."
+                },
+                "rows": {
+                    "type": "number",
+                    "location": "query",
+                    "description": "The maximum number of entries to return. This can be used together with {offset} to get the data in parts."
+                }
+            }
+        },
         "getCities": {
             "description": "Returns list of cities (with some translations).",
             "httpMethod": "GET",
@@ -859,6 +912,59 @@
                     "type": "date",
                     "location": "query",
                     "description": "Limit the results to all data that has been changed since this date (see also getChangedHotels)."
+                }
+            }
+        },
+        "getDistrictHotels": {
+            "description": "Returns a list of district_id and hotel_id pairs. This function expects any of the following search parameters: countrycodes, city_ids, district_ids and last_change.",
+            "httpMethod": "GET",
+            "uri": "bookings.getDistrictHotels",
+            "responseModel": "jsonResponse",
+            "parameters": {
+                "city_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to these cities."
+                },
+                "classes": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to these classifications."
+                },
+                "countrycodes": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to the specified country."
+                },
+                "district_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to these districts."
+                },
+                "fields": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to these output variables."
+                },
+                "hotel_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result to these hotels."
+                },
+                "last_change": {
+                    "type": "date",
+                    "location": "query",
+                    "description": "Limit the results to all data that has been changed since this date (see also getChangedHotels)."
+                },
+                "offset": {
+                    "type": "number",
+                    "location": "query",
+                    "description": "Where in the resulting list to start. This can be used together with {rows} to get the data in parts."
+                },
+                "rows": {
+                    "type": "number",
+                    "location": "query",
+                    "description": "The maximum number of entries to return. This can be used together with {offset} to get the data in parts."
                 }
             }
         }
