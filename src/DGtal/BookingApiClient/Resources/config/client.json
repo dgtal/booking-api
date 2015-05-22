@@ -21,7 +21,7 @@
                     "location": "query",
                     "description": "Limit the result to these hotels."
                 },
-                "languagecode": {
+                "languagecodes": {
                     "type": "string",
                     "location": "query",
                     "description": "Specify the language for: block_id, policies, room texts and hotel descriptions. Note: not all text is translated in all languages."
@@ -136,7 +136,7 @@
                     "description": "Limit the result list to these output variables."
                 },
                 "last_change": {
-                    "type": "date",
+                    "type": "string",
                     "location": "query",
                     "description": "Limit the results to all data that has been changed since this date (see also getChangedHotels)."
                 },
@@ -267,9 +267,57 @@
                     "description": "Also include information from test hotels (useful for debugging)."
                 },
                 "last_change": {
-                    "type": "date",
+                    "type": "string",
                     "location": "query",
                     "description": "Limit the results to all data that has been changed since this date (see also getChangedHotels)."
+                }
+            }
+        },
+        "getHotelTranslations": {
+            "description": "Returns hotel name/address/city translations.",
+            "httpMethod": "GET",
+            "uri": "bookings.getHotelTranslations",
+            "responseModel": "jsonResponse",
+            "parameters": {
+                "city_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to these cities."
+                },
+                "classes": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to these classifications."
+                },
+                "hotel_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result to these hotels."
+                },
+                "languagecodes": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Return the results in this language."
+                },
+                "last_change": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to all data that has been changed since this date (see also getChangedHotels)."
+                },
+                "offset": {
+                    "type": "number",
+                    "location": "query",
+                    "description": "Where in the resulting list to start. This can be used together with {rows} to get the data in parts."
+                },
+                "rows": {
+                    "type": "number",
+                    "location": "query",
+                    "description": "The maximum number of entries to return. This can be used together with {offset} to get the data in parts."
+                },
+                "show_test": {
+                    "type": "boolean",
+                    "location": "query",
+                    "description": "Also include information from test hotels (useful for debugging)."
                 }
             }
         },
@@ -325,7 +373,7 @@
                     "description": "Also include information from test hotels (useful for debugging)."
                 },
                 "last_change": {
-                    "type": "date",
+                    "type": "string",
                     "location": "query",
                     "description": "Limit the results to all data that has been changed since this date (see also getChangedHotels)."
                 }
@@ -429,7 +477,7 @@
                     "description": "Also include information from test hotels (useful for debugging)."
                 },
                 "last_change": {
-                    "type": "date",
+                    "type": "string",
                     "location": "query",
                     "description": "Limit the results to all data that has been changed since this date (see also getChangedHotels)."
                 }
@@ -482,7 +530,7 @@
                     "description": "Also include information from test hotels (useful for debugging)."
                 },
                 "last_change": {
-                    "type": "date",
+                    "type": "string",
                     "location": "query",
                     "description": "Limit the results to all data that has been changed since this date (see also getChangedHotels)."
                 }
@@ -540,7 +588,7 @@
                     "description": "Include url for postcard photo only if high resolution photo for this format is available, otherwise skip it."
                 },
                 "last_change": {
-                    "type": "date",
+                    "type": "string",
                     "location": "query",
                     "description": "Limit the results to all data that has been changed since this date (see also getChangedHotels)."
                 }
@@ -603,7 +651,7 @@
                     "description": "Identifies the main room photos. Note: there may be more than one main photos."
                 },
                 "last_change": {
-                    "type": "date",
+                    "type": "string",
                     "location": "query",
                     "description": "Limit the results to all data that has been changed since this date (see also getChangedHotels)."
                 }
@@ -689,7 +737,7 @@
                     "description": "Also include information from test hotels (useful for debugging)."
                 },
                 "last_change": {
-                    "type": "date",
+                    "type": "string",
                     "location": "query",
                     "description": "Limit the results to all data that has been changed since this date (see also getChangedHotels)."
                 }
@@ -757,7 +805,7 @@
                     "description": "Also include information from test hotels (useful for debugging)."
                 },
                 "last_change": {
-                    "type": "date",
+                    "type": "string",
                     "location": "query",
                     "description": "Limit the results to all data that has been changed since this date (see also getChangedHotels)."
                 }
@@ -909,9 +957,327 @@
                     "description": "Also include information from test hotels (useful for debugging)."
                 },
                 "last_change": {
-                    "type": "date",
+                    "type": "string",
                     "location": "query",
                     "description": "Limit the results to all data that has been changed since this date (see also getChangedHotels)."
+                }
+            }
+        },
+        "getRoomTypes": {
+            "description": "Returns room types.",
+            "httpMethod": "GET",
+            "uri": "bookings.getRoomTypes",
+            "responseModel": "jsonResponse",
+            "parameters": {
+                "fields": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to these output variables."
+                },
+                "languagecodes": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Specify the language for: block_id, policies, room texts and hotel descriptions. Note: not all text is translated in all languages."
+                },
+                "roomtype_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to these room types."
+                }
+            }
+        },
+        "getRoomTranslations": {
+            "description": "Returns room translations.",
+            "httpMethod": "GET",
+            "uri": "bookings.getRoomTranslations",
+            "responseModel": "jsonResponse",
+            "parameters": {
+                "city_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to these cities."
+                },
+                "classes": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to these classifications."
+                },
+                "countrycodes": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to the specified country."
+                },
+                "fields": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to these output variables."
+                },
+                "hotel_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result to these hotels."
+                },
+                "languagecodes": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to these languages. Note: not all text is translated in all languages"
+                },
+                "last_change": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to all data that has been changed since this date (see also getChangedHotels)."
+                },
+                "offset": {
+                    "type": "number",
+                    "location": "query",
+                    "description": "Where in the resulting list to start. This can be used together with {rows} to get the data in parts."
+                },
+                "room_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result to these rooms."
+                },
+                "rows": {
+                    "type": "number",
+                    "location": "query",
+                    "description": "The maximum number of entries to return. This can be used together with {offset} to get the data in parts."
+                },
+                "show_test": {
+                    "type": "boolean",
+                    "location": "query",
+                    "description": "Also include information from test hotels (useful for debugging)."
+                }
+            }
+        },
+        "getRooms": {
+            "description": "Returns rooms.",
+            "httpMethod": "GET",
+            "uri": "bookings.getRooms",
+            "responseModel": "jsonResponse",
+            "parameters": {
+                "city_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to these cities."
+                },
+                "classes": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to these classifications."
+                },
+                "countrycodes": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to the specified country."
+                },
+                "fields": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to these output variables."
+                },
+                "hotel_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result to these hotels."
+                },
+                "last_change": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to all data that has been changed since this date (see also getChangedHotels)."
+                },
+                "max_persons": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to rooms that can accomodate at most this many persons. See als bookings.getHotelAvailability{max_persons} and bookings.processBooking{guest_qty}."
+                },
+                "offset": {
+                    "type": "number",
+                    "location": "query",
+                    "description": "Where in the resulting list to start. This can be used together with {rows} to get the data in parts."
+                },
+                "room_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result to these rooms."
+                },
+                "roomtype_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to these room types."
+                },
+                "rows": {
+                    "type": "number",
+                    "location": "query",
+                    "description": "The maximum number of entries to return. This can be used together with {offset} to get the data in parts."
+                },
+                "show_test": {
+                    "type": "boolean",
+                    "location": "query",
+                    "description": "Also include information from test hotels (useful for debugging)."
+                },
+                "show_configuration": {
+                    "type": "boolean",
+                    "location": "query",
+                    "description": "Adds configuration_id to bedding output."
+                },
+                "show_room_size": {
+                    "type": "boolean",
+                    "location": "query",
+                    "description": "Include {room_size} in output."
+                }
+            }
+        },
+        "getChangedHotels": {
+            "description": "Returns ids from hotels where *something* has been added / changed / removed (including closed hotels) since a certain date.",
+            "httpMethod": "GET",
+            "uri": "bookings.getChangedHotels",
+            "responseModel": "jsonResponse",
+            "parameters": {
+                "city_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to these cities."
+                },
+                "classes": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to these classifications."
+                },
+                "countrycodes": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to the specified country."
+                },
+                "hotel_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result to these hotels."
+                },
+                "last_change": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to all data that has been changed since this date (see also getChangedHotels)."
+                },
+                "offset": {
+                    "type": "number",
+                    "location": "query",
+                    "description": "Where in the resulting list to start. This can be used together with {rows} to get the data in parts."
+                },
+                "rows": {
+                    "type": "number",
+                    "location": "query",
+                    "description": "The maximum number of entries to return. This can be used together with {offset} to get the data in parts."
+                },
+                "show_closed": {
+                    "type": "boolean",
+                    "location": "query",
+                    "description": "Only return open (0), closed (1) or all (open and closed) hotels (2)."
+                },
+                "show_test": {
+                    "type": "boolean",
+                    "location": "query",
+                    "description": "Also include information from test hotels (useful for debugging)."
+                }
+            }
+        },
+        "getRegions": {
+            "description": "Returns all the regions where Bookings offers hotels.",
+            "httpMethod": "GET",
+            "uri": "bookings.getRegions",
+            "responseModel": "jsonResponse",
+            "parameters": {
+                "countrycodes": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to the specified country."
+                },
+                "fields": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to these output variables."
+                },
+                "languagecodes": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Return the results in this language."
+                },
+                "last_change": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to all data that has been changed since this date (see also getChangedHotels)."
+                },
+                "offset": {
+                    "type": "number",
+                    "location": "query",
+                    "description": "Where in the resulting list to start. This can be used together with {rows} to get the data in parts."
+                },
+                "region_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to these regions."
+                },
+                "region_types": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to the specified region_type: island, province, other."
+                },
+                "rows": {
+                    "type": "number",
+                    "location": "query",
+                    "description": "The maximum number of entries to return. This can be used together with {offset} to get the data in parts."
+                }
+            }
+        },
+        "getRegionHotels": {
+            "description": "Returns Hotels and its assosiated regional information.",
+            "httpMethod": "GET",
+            "uri": "bookings.getRegionHotels",
+            "responseModel": "jsonResponse",
+            "parameters": {
+                "classes": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to these classifications."
+                },
+                "countrycodes": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to the specified country."
+                },
+                "fields": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result list to these output variables."
+                },
+                "hotel_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the result to these hotels."
+                },
+                "last_change": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to all data that has been changed since this date (see also getChangedHotels)."
+                },
+                "offset": {
+                    "type": "number",
+                    "location": "query",
+                    "description": "Where in the resulting list to start. This can be used together with {rows} to get the data in parts."
+                },
+                "region_ids": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to these regions."
+                },
+                "rows": {
+                    "type": "number",
+                    "location": "query",
+                    "description": "The maximum number of entries to return. This can be used together with {offset} to get the data in parts."
+                },
+                "show_test": {
+                    "type": "boolean",
+                    "location": "query",
+                    "description": "Also include information from test hotels (useful for debugging)."
                 }
             }
         },
@@ -952,7 +1318,7 @@
                     "description": "Limit the result to these hotels."
                 },
                 "last_change": {
-                    "type": "date",
+                    "type": "string",
                     "location": "query",
                     "description": "Limit the results to all data that has been changed since this date (see also getChangedHotels)."
                 },
