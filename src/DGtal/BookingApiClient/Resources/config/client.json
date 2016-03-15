@@ -1333,6 +1333,54 @@
                     "description": "The maximum number of entries to return. This can be used together with {offset} to get the data in parts."
                 }
             }
+        },
+        "getBookingDetails": {
+            "description": "Returns a list of transactions which are booked in the given period, up to 2 years in the past.",
+            "httpMethod": "GET",
+            "uri": "bookings.getBookingDetails",
+            "responseModel": "jsonResponse",
+            "parameters": {
+                "begin_date": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "The period's start date. Note: this is compared to {creation_datetime}, not {arrival_date} and/or {departure_date}. Only one of {begin_date}+{end_date} or {id} or {last_change} or {checkout_from}+{checkout_until} must be supplied."
+                },
+                "end_date": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "The period's end date. Note: this is compared to {creation_datetime}, not {arrival_date} and/or {departure_date}. Only one of {begin_date}+{end_date} or {id} or {last_change} or {checkout_from}+{checkout_until} must be supplied."
+                },
+                "checkout_from": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Booking with guest checked out from this date. Only one of {begin_date}+{end_date} or {id} or {last_change} or {checkout_from}+{checkout_until} must be supplied."
+                },
+                "checkout_until": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Booking with guest checked out until this date. Only one of {begin_date}+{end_date} or {id} or {last_change} or {checkout_from}+{checkout_until} must be supplied."
+                },
+                "id": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Booking ID. Only one of {begin_date}+{end_date} or {id} or {last_change} or {checkout_from}+{checkout_until} must be supplied."
+                },
+                "last_change": {
+                    "type": "string",
+                    "location": "query",
+                    "description": "Limit the results to all data that has been changed since this date. Only one of {begin_date}+{end_date} or {id} or {last_change} or {checkout_from}+{checkout_until} must be supplied."
+                },
+                "offset": {
+                    "type": "number",
+                    "location": "query",
+                    "description": "Where in the resulting list to start. This can be used together with {rows} to get the data in parts."
+                },
+                "rows": {
+                    "type": "number",
+                    "location": "query",
+                    "description": "The maximum number of entries to return. This can be used together with {offset} to get the data in parts."
+                }
+            }
         }
     },
     "models": {
